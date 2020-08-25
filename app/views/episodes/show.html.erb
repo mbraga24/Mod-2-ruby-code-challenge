@@ -1,0 +1,16 @@
+<h2>Episode date: <%= @episode.date %></h2>
+<ul>
+  <% if flash[:message] %>
+    <% flash[:message].each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  <% end %>
+</ul>
+<h3>List of guests:</h3>
+<ul>
+  <% @episode.guests.each do |guest| %>
+    <li><%= link_to guest.name, guest_path(guest) %></li>
+  <% end %>
+</ul>
+<h4>Average Rating for this episode: <%= @episode.average_episode_rating %></h4>
+<%= flash.inspect %>
